@@ -1,0 +1,311 @@
+.inner_img {
+    min-height: 200px;
+    padding-top: 100px;
+    background-color: $auo_blue;
+    position: relative;
+    width: 100%;
+
+    @include screen('mobile') {
+        padding-top: 60px;
+    }
+
+    // outline: 1px solid red;
+    &.mask {
+        &:before {
+            background-color: #fff;
+        }
+
+        &:after {
+            background-color: $auo_lightblue;
+        }
+    }
+
+    &.job_search {
+        .container {
+            .form {
+                transform: translateY(-80px) !important;
+
+                @include screen('mobile') {
+                    transform: translateY(-50px) !important;
+                }
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            position: absolute;
+            content: '';
+            width: 300px;
+            height: 300px;
+            background: url(../images/auo_pattern_01.png) no-repeat center center;
+            background-size: contain;
+            z-index: 0;
+            left: 50%;
+            margin-left: -60%;
+            top: -105%;
+
+            @include screen('mobile') {
+                top: auto;
+                bottom: 10%;
+            }
+        }
+
+        &:after {
+            position: absolute;
+            content: '';
+            width: 300px;
+            height: 300px;
+            background: url(../images/auo-index-pattern-2.png) no-repeat center center;
+            background-size: contain;
+            z-index: 0;
+            left: 50%;
+            margin-left: 40%;
+            top: -150%;
+
+            @include screen('mobile') {
+                right: -20%;
+                top: -70%;
+            }
+        }
+
+        .form {
+            position: relative;
+            z-index: 3;
+            max-width: 1170px;
+            margin-top: 2em;
+        }
+    }
+
+    .img-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40%;
+        height: 100%;
+        display: none;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+}
+
+// 內頁layout
+.login_content {
+    width: 100%;
+    background: url(../images/login_bg_02.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+
+    .container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        min-height: 720px;
+        height: 60vh;
+        // padding: 4em 1em;
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        background-color: rgba($auo_blue, .15);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .login {
+        position: relative;
+        min-height: 550px;
+        z-index: 3;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: 450px;
+        background-color: #FFF;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        display: flex;
+        padding: 2em 3em 4em;
+        margin: auto 5% auto auto;
+        flex-flow: row wrap;
+        border-radius: .65em;
+        align-content: flex-start;
+
+        &:after {
+            position: absolute;
+            content: "© 2024 AUO Corporation. All Rights Reserved.";
+            bottom: -3em;
+            color: rgba(255, 255, 255, .75);
+            width: 100%;
+            font-size: .938em;
+            left: 0;
+        }
+
+        @include screen('mobile') {
+            margin: 0 auto;
+            padding: 1.5em 2em 4em;
+            flex-basis: 95%;
+        }
+
+        .login_head {
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: 100%;
+            text-align: left;
+
+            h2 {
+                flex-grow: 0;
+                flex-shrink: 1;
+                flex-basis: 100%;
+                font-size: 2em;
+                margin: .5em 0;
+                color: $auo-blue;
+            }
+        }
+
+        form {
+            display: block;
+            width: 100%;
+            margin: 0 0 2em;
+
+            .form_grp {
+                display: flex;
+                position: relative;
+                margin: 0 0 .75em;
+                text-align: left;
+                justify-content: flex-start;
+
+                label {
+                    position: absolute;
+                    top: .72em;
+                    left: 1em;
+                }
+
+                input {
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    flex-basis: 100%;
+                    border: none;
+                    background-color: #f1f1f1;
+                    padding-left: 4em;
+                }
+            }
+
+            .checkbox {
+                display: flex;
+                justify-content: flex-start;
+                padding-left: .25em;
+            }
+        }
+
+        .btn_grp {
+            width: 100%;
+            height: auto;
+            margin: 0 .5em 1em;
+
+            button {
+                width: 90%;
+                margin: 0 auto;
+                font-size: 1.125em;
+            }
+        }
+
+        .login_social {
+            padding: 0;
+            width: 100%;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+
+                li {
+                    list-style: none;
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    flex-basis: 48px;
+                    margin: 0 .5em;
+
+                    a {
+                        opacity: .8;
+                        transition: .3s ease-out;
+
+                        &:hover,
+                        &:focus {
+                            opacity: 1;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.error_404 {
+    background: url(../images/auo-404.jpg) no-repeat center center;
+    min-height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: calc(80vh - 120px);
+    padding: 280px 0;
+    text-align: left;
+
+    .container {
+        text-align: left;
+    }
+
+    h3 {
+        font-size: 3em;
+        line-height: 1.25em;
+        color: $auo_yellow;
+        text-align: left;
+
+        @include screen('mobile') {
+            font-size: 1.5em;
+        }
+    }
+
+    p {
+        color: #fff;
+        font-size: 1.5em;
+
+        @include screen('mobile') {
+            font-size: 1.125em;
+        }
+    }
+
+    a.back {
+        color: $auo-blue;
+        padding: 0.75em 2.5em;
+        display: block;
+        margin: 0 auto 0 0;
+        background-color: #fff;
+        border-radius: 3em;
+        display: inline-block;
+        transition: 0.3s ease-out;
+
+        &:hover,
+        &:focus {
+            background-color: $auo_lightblue;
+        }
+    }
+}

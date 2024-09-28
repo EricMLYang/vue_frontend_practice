@@ -1,0 +1,42 @@
+{
+  "name": "capdemo",
+  "private": true,
+  "version": "1.1.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --base=/mydev/",
+    "dev.prod": "vite --mode prod",
+    "build": "vite build --base=/SSSWEB/",
+    "build.prod": "vite build --mode prod --base=/VueCapDemo/",
+    "build.rex": "vite build --base=/demoWeb/",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@vueform/multiselect": "^2.6.2",
+    "axios": "^1.4.0",
+    "element-plus": "^2.3.7",
+    "uuid": "^9.0.0",
+    "vue-axios": "^3.5.2",
+    "vue-i18n": "^9.13.1",
+    "vue-router": "^4.2.2",
+    "vue3-plotly": "^0.0.7",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "autoprefixer": "^10.4.14",
+    "babel-eslint": "^10.1.0",
+    "daisyui": "^3.1.0",
+    "eslint": "^8.42.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.14.1",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.9"
+  }
+}

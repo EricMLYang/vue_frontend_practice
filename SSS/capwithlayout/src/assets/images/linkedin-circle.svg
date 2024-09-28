@@ -1,0 +1,11 @@
+<svg id="linkedin" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <rect id="Area_SIZE:MEDIUM_STATE:DEFAULT_STYLE:STYLE2_" data-name="Area [SIZE:MEDIUM][STATE:DEFAULT][STYLE:STYLE2]" width="48" height="48" rx="24" fill="#969696"/>
+  <g id="Icon_ICON_feather_linkedin_SIZE_MEDIUM_STATE_DEFAULT_STYLE_STYLE2_" data-name="Icon [ICON=feather/linkedin][SIZE=MEDIUM][STATE=DEFAULT][STYLE=STYLE2]" transform="translate(14 14)">
+    <rect id="Area_ICON:feather_linkedin_SIZE:MEDIUM_STATE:DEFAULT_STYLE:STYLE2_" data-name="Area [ICON:feather/linkedin][SIZE:MEDIUM][STATE:DEFAULT][STYLE:STYLE2]" width="20" height="20" fill="#fff" opacity="0"/>
+    <g id="Icon" transform="translate(-1 -1)">
+      <path id="bc623334-597b-4b6e-86a1-a38208e0413b" d="M16,8a6,6,0,0,1,6,6v7H18V14a2,2,0,0,0-4,0v7H10V14A6,6,0,0,1,16,8Z" transform="translate(-1 -0.5)" fill="#fff"/>
+      <rect id="da636241-4326-436a-b6ad-036e7e6cae54" width="4" height="12" transform="translate(1 8.5)" fill="#fff"/>
+      <circle id="bdc81090-cb9a-4eb2-9843-e26636422ceb" cx="2" cy="2" r="2" transform="translate(1 1.5)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

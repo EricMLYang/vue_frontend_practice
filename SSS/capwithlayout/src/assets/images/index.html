@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    // Tailwind v3.4.4
+    // const colors = require('tailwindcss/colors')
+	const colors = tailwind.colors
+	
+	
+    tailwind.config = {
+      theme: {
+        extend: {
+		  // 顏色
+          colors: {
+			transparent: 'transparent',
+			current: 'currentColor',
+			'auoBlue': '#005087',
+			'smartBlue': '#64dcf0',
+			'energeticYellow': '#ffe664',
+			'innovativePurple': '#b491d7',
+			'sustainableGreen': '#87dc64',
+			'darkBlue':'#147891',
+			'darkYellow':'#E6A50F',
+			'darkPurple':'#643C96',
+			'darkGreen':'#328732',
+			'darkRed':'#E65F5A',
+			'darkBrown':'#785A46',
+			'lightBlue':'#BEE6E1',
+			'lightYellow':'#FFF0B4',
+			'lightPurple':'#D7B4E1',
+			'lightGreen':'#D2F09B',
+			'lightRed':'#FFC8AA',
+			'lightBrown':'#D2B496',
+			'gray':{
+				0: '#414141',
+				1: '#646464',
+				2: '#969696',
+				3: '#c8c8c8',
+				4: '#e1e1e1',
+				5: '#f0f0f0',
+				6: '#f5f5f5',
+			},
+			'white': '#ffffff',
+			'maskColor': '#003c6599',
+			'silver': '#ecebff',
+			'bubble-gum': '#ff77e9',
+			'bermuda': '#78dcca',     
+	    
+			
+          },
+		 
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  Text Default Style
+
+  <h1 class="text-auoBlue text-5xl/[60px] font-bold">
+    Heading 1
+  </h1>
+  <h2 class="text-auoBlue text-[40px]/[56px] font-bold">
+    Heading 2
+  </h2>
+  <h3 class="text-auoBlue text-[32px]/[42px] font-bold">
+    Heading 3
+  </h3>
+  <h4 class="text-auoBlue text-2xl font-bold">
+    Heading 4
+  </h4>
+  <h5 class="text-auoBlue text-xl/[30px] font-bold">
+	Heading 5
+  </h5>
+  <p class="text-auoBlue text-lg/7 ">
+	Normal Text Regular
+  </p>
+  <p class="text-auoBlue text-base">
+	Small Text Regular
+  </p>
+  <br /> 
+  
+  <h2> Button </h2>
+  <div>
+	
+	<button class="bg-auoBlue text-white text-lg hover:bg-gray-6 hover:text-auoBlue font-bold rounded-full px-4 py-3.5 min-w-28"> Button Primary </button> 
+	
+	<button class="bg-gray-5 text-auoBlue text-lg hover:bg-smartBlue font-bold rounded-full px-4 py-3.5 min-w-28">
+	  Button Secondary
+	</button>
+  </div> 
+  <br />
+  <br /> 
+ 	
+  </div>
+  <br />
+  <br />  
+</body>
+</html>
+<style>
+	body {
+	  font-family: "Mabry Pro", sans-serif, 微軟正黑體, 微软雅黑体 !important;
+	}
+  </style>
