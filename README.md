@@ -1,3 +1,8 @@
+# Reference
+* Vue.js Document is great reference: https://vuejs.org/guide/introduction.html
+* daisyUI
+* Tailwind CSS
+
 # Getting Started
 * Makesure you already install npm, vite
 * `npm run build`  for build the web
@@ -2048,3 +2053,336 @@ This breakdown provides a starting point for developing the permission managemen
 Feel free to ask if you have any more questions or would like to dive deeper into any specific aspect of the implementation. 
 
 ## [角色管理-編輯角色]
+OK, let's break down the development approach for the role management page based on the newly provided image.
+
+**1. Brief Description of the Page Content**
+
+The image presents a modal/dialog focused on editing existing roles and their permissions. Key features include:
+
+* **Role Details:** Displays the name and description of the selected role
+* **Role Status:** A toggle switch to enable/disable the role
+* **Permission Assignment:** A list of permissions with checkboxes to grant or revoke access for the role
+* **Editing Restrictions:** A message indicating that the role name cannot be edited, but the role can be deleted and recreated if needed
+* **Action Buttons:** Buttons to save changes or proceed to the next step
+
+**2. Elements and Implementation**
+
+Let's explore the essential elements and their possible implementation using Vue 3, Tailwind CSS, and potentially referencing daisyUI for component inspiration.
+
+**Element: Modal/Dialog**
+
+* **Explanation:**  The container for the role editing interface
+* **Implementation:**
+    * Utilize a modal component from daisyUI or build a custom one with Tailwind CSS classes
+    * Manage its visibility using Vue's data properties and `v-if` directive
+
+* **Simplified Template Example:**
+
+```vue
+<template>
+  <div v-if="showEditModal" class="modal">
+   </div>
+</template>
+```
+
+**Element: Role Name & Description**
+
+* **Explanation:** Displays the role's name and its associated description
+* **Implementation:**
+    * Use text elements (e.g., `h2`, `p`) with Tailwind CSS classes for styling
+    * Bind their content to Vue data properties holding the role information
+
+* **Simplified Template Example:**
+
+```vue
+<h2>{{ role.name }}</h2>
+<p>{{ role.description }}</p>
+```
+
+**Element: Role Status Toggle**
+
+* **Explanation:** A switch to enable/disable the role
+* **Implementation:**
+    * Use a checkbox input or a custom toggle component (potentially from daisyUI)
+    * Bind its checked state to a Vue data property representing the role's status
+
+* **Simplified Template Example:**
+
+```vue
+<label class="label cursor-pointer">
+  <span class="label-text">啟用</span> 
+  <input type="checkbox" v-model="role.isEnabled" class="toggle toggle-primary" />
+</label>
+```
+
+**Element: Permission Checkboxes**
+
+* **Explanation:** A list of checkboxes representing various permissions
+* **Implementation:**
+    * Similar to the previous example, but now bind the checked state of each checkbox to indicate whether the role has that specific permission
+
+* **Simplified Template Example:**
+
+```vue
+<div v-for="permission in permissions" :key="permission.id">
+  <label class="label cursor-pointer">
+    <input type="checkbox" v-model="role.permissions" :value="permission.id" class="checkbox checkbox-primary" />
+    <span class="label-text">{{ permission.name }}</span> 
+  </label>
+</div>
+
+```
+
+**Element: Editing Restriction Message**
+
+* **Explanation:** Informs the user about the limitations on editing the role name
+* **Implementation:**
+    * A simple text element (e.g., `p`) with appropriate Tailwind CSS classes for styling and potentially an icon
+
+* **Simplified Template Example:**
+
+```vue
+<p class="text-sm text-gray-500">角色名稱不可編輯，若有需要可刪除重建</p>
+```
+
+**Element: Buttons (Save, Next)**
+
+* **Explanation:** Triggers actions like saving changes or moving to the next step
+* **Implementation:**
+    * Use button elements with Tailwind CSS classes
+    * Attach click event handlers to call Vue methods for saving data or navigating
+
+* **Simplified Template Example:**
+
+```vue
+<button @click="saveRole" class="btn btn-primary">儲存</button>
+<button @click="nextStep" class="btn">下一步</button>
+```
+
+**3. Summary**
+
+This breakdown offers a foundational guide for developing the role editing page.
+
+**Key Points:**
+
+*   Harness Vue 3's reactivity to manage data and UI updates efficiently
+*   Employ Tailwind CSS for styling, consider using daisyUI components for a potential head start
+*   Structure your Vue component with well-defined data properties, methods, and computed properties to handle the logic
+
+**Remember:**
+
+*   This is a simplified illustration, you'll need additional elements and logic for API interactions, error handling, and more intricate behaviors.
+*   Refer to daisyUI's documentation for pre-built components that might speed up your development
+*   Tailwind CSS provides a vast array of utility classes for versatile styling
+
+Feel free to ask if you have more questions or want to delve into a specific implementation detail. 
+
+## [角色管理-編輯角色2]
+Certainly, let's break down the development of your permission management page using Vue 3, Tailwind CSS, and potentially leveraging some elements from daisyUI for styling inspiration.
+
+**1. Page Content Description**
+
+The image depicts a user interface for managing roles and their associated permissions within an application. 
+
+* **Top Section:**  
+   * **Breadcrumb:**  Indicates the current location within the application hierarchy.
+   * **Progress Bar:** Visualizes the current step of the role creation/editing process.
+   * **Close Button:** Allows the user to exit the current page or modal.
+
+* **Main Section:**
+   * **Left Column:**
+      * **Role ID:**  Displays the unique identifier for each role.
+      * **Role Name:** Shows the name assigned to each role.
+   * **Right Column:** 
+     * **Checkboxes:**  Represent various permissions that can be assigned to roles.
+     * **"Previous" and "Save" Buttons:** Enable navigation and saving changes.
+
+**2. Element Breakdown with Implementation**
+
+**Top Section**
+
+* **Breadcrumb**
+
+   * **Explanation:** Displays the navigation path, likely using Vue Router to manage routes and links.
+   * **Template Example:** 
+
+     ```vue
+     <nav class="breadcrumb">
+       <a class="breadcrumb-item" href="#">友達GRC</a> 
+       <a class="breadcrumb-item" href="#">角色管理</a> 
+       <span class="breadcrumb-item active" aria-current="page">角色設定</span>
+     </nav>
+     ```
+
+* **Progress Bar**
+
+   * **Explanation:** Indicates the current step using a component from daisyUI or a custom implementation with Tailwind's progress bar utility classes. 
+   * **Template Example (daisyUI):**
+
+     ```vue
+     <progress class="progress progress-primary w-56" value="40" max="100"></progress>
+     ```
+
+* **Close Button**
+
+   * **Explanation:**  A button to close the modal/page, potentially emitting an event to trigger the closing action. 
+   * **Template Example:**
+
+     ```vue
+     <button class="btn btn-circle btn-ghost absolute right-2 top-2" @click="closeModal">
+       <svg ... (close icon SVG) /> 
+     </button>
+     ```
+
+**Main Section**
+
+* **Table (or similar structure)**
+
+   * **Explanation:** Presents the role data. You might use a table component from a library like `vue-good-table` or build it with Tailwind's grid system.
+   * **Template Example (Simplified with Grid):**
+
+     ```vue
+     <div class="grid grid-cols-2 gap-4">
+       <div v-for="role in roles" :key="role.id">
+         <div>{{ role.id }}</div>
+         <div>{{ role.name }}</div>
+       </div>
+     </div>
+     ```
+
+* **Checkboxes**
+
+   * **Explanation:**  Allow users to select/deselect permissions.  Bind them to a `permissions` array in your Vue component's data.
+   * **Template Example:**
+
+     ```vue
+     <div v-for="permission in allPermissions" :key="permission.id">
+       <label class="label cursor-pointer">
+         <input type="checkbox" class="checkbox" 
+                v-model="selectedPermissions" :value="permission.id">
+         <span class="label-text">{{ permission.name }}</span>
+       </label>
+     </div>
+     ```
+
+* **"Previous" and "Save" Buttons**
+
+   * **Explanation:**  Handle navigation and data saving. The "Save" button would likely trigger an API call to update the role's permissions.
+   * **Template Example:** 
+
+     ```vue
+     <button class="btn btn-primary" @click="savePermissions">Save</button>
+     ```
+
+**3. Summary**
+
+This breakdown outlines the fundamental steps involved in developing your permission management page. To create a polished and functional interface, you'll need to:
+
+* **Fetch Data:**  Retrieve role and permission data from your backend API when the component mounts.
+* **State Management:**  Use Vue's reactivity system to manage the selected permissions and any other relevant data. 
+* **Form Handling:** Implement the logic to save the updated permissions to the backend when the "Save" button is clicked.
+* **Styling:**  Apply Tailwind CSS classes and potentially leverage daisyUI components for styling. 
+* **Error Handling:**  Provide feedback to the user in case of API errors or validation issues.
+
+Remember, this is a simplified guide. You'll likely need to add features like search, pagination, and more robust error handling as your application grows. 
+
+Feel free to ask if you have more specific questions or need help with particular implementation details! 
+
+## [角色管理-刪除]
+OK, let's break down the development of your permission management page with the new modal information included.
+
+**1. Page Content Description**
+
+The image displays a page for managing roles and their permissions, with a focus on a modal that appears when deleting a role.
+
+* **Main Page**
+
+   * **Header:** Contains a title, breadcrumbs, and a button to add a new role
+   * **Table:** Displays a list of roles with their IDs, names, status, creation dates, and action buttons (edit, delete).
+
+* **Delete Role Modal**
+
+   * **Title:** "Delete Role"
+   * **Content:**  A warning message indicating the consequences of deleting the role.
+   * **Buttons:**  "Cancel" and "Confirm" buttons. 
+
+**2. Element Breakdown with Implementation**
+
+**Main Page**
+
+* **Header**
+
+   * **Title & Breadcrumbs:** Similar to the previous example, use Vue Router for navigation.
+   * **"New Role" Button:** Triggers a modal or navigates to a new role creation page.
+   * **Template Example (Simplified):**
+
+      ```vue
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h1 class="text-2xl">角色管理</h1>
+          <nav class="breadcrumb">...</nav> 
+        </div>
+        <button class="btn btn-primary" @click="addNewRole">+ 新增</button>
+      </div>
+      ```
+
+* **Table** 
+
+   * **Explanation:** Use a table component or grid system to display role data.
+   * **"Edit" Button:**  Triggers a modal or navigates to an edit page for the specific role.
+   * **"Delete" Button:**  Opens the delete confirmation modal.
+   * **Template Example (Simplified):**
+
+      ```vue
+      <table>
+        <thead>...</thead> 
+        <tbody>
+          <tr v-for="role in roles" :key="role.id">
+            <td>{{ role.id }}</td>
+            <td>{{ role.name }}</td>
+            <td>{{ role.status }}</td>
+            <td>{{ role.creationDate }}</td>
+            <td>
+              <button @click="editRole(role)">編輯</button>
+              <button @click="showDeleteModal(role)">刪除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      ```
+
+**Delete Role Modal**
+
+* **Modal Structure:**  Use a modal component from daisyUI or a custom one.
+* **Content:**  Display the warning message.
+* **Buttons:**  "Cancel" closes the modal, "Confirm" triggers the delete action (API call) and then closes the modal. 
+* **Template Example (Simplified):**
+
+   ```vue
+   <div v-if="showDeleteModal" class="modal">
+     <div class="modal-box">
+       <h3 class="font-bold text-lg">刪除角色</h3>
+       <p>您確定要刪除角色 {{ roleToDelete.name }} 嗎? 刪除後該角色綁定的權限也將一併失效...</p>
+       <div class="modal-action">
+         <button class="btn" @click="showDeleteModal = false">取消</button>
+         <button class="btn btn-error" @click="deleteRole">確定</button>
+       </div>
+     </div>
+   </div>
+   ```
+
+**3. Summary**
+
+To implement this page, you will need to:
+
+* **Fetch Data:** Retrieve role data from the backend API.
+* **State Management:** Manage the visibility of the delete modal and the role to be deleted.
+* **Modal Interaction:** Handle opening and closing the modal, and implement the delete functionality.
+* **Styling:** Apply Tailwind CSS and potentially daisyUI for styling. 
+* **API Calls:** Implement API calls to fetch roles, delete roles, etc.
+* **Error Handling:**  Provide user feedback for API errors or other issues.
+
+Remember: This is a basic outline.  You will likely want to add features like search, filtering, pagination, and more detailed error handling.
+
+Let me know if you'd like assistance with the implementation of specific components or features. 
+｀
